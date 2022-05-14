@@ -147,42 +147,86 @@
 # for z in r:
 #     print(z)
 
+#
+# def binary_searchiter(arr, n):
+#     low = 0
+#     high = len(arr) - 1
+#     mid = 0
+#     while low <= high:
+#         mid = (high + low) // 2
+#         if arr[mid] < n:
+#             low = mid + 1
+#         elif arr[mid] > n:
+#             high = mid - 1
+#         else:
+#             return mid
+#     return -1
+#
+# def sort_mas(list , target):
+#     for i in range(len(list)):
+#         ost = target - list[i]
+#         if ost in list:
+#             index = binary_searchiter(list,ost)
+#             return  [list[i], list[index]]
+#         else:
+#             return []
+#
+# print(sort_mas([-6 ,-5 , 0 , 2 , 4 ,4 , 3 , 5] , 8))
+# print(sort_mas([-6 ,-5 , 0 , 2 , 3 , 5] , 18))
+# print(sort_mas([0, 1, 2, 3, 4, 5, 6, 7, 8, 9] , 17))
+#
+#
+#
 
-def binary_searchiter(arr, n):
-    low = 0
-    high = len(arr) - 1
-    mid = 0
-    while low <= high:
-        mid = (high + low) // 2
-        if arr[mid] < n:
-            low = mid + 1
-        elif arr[mid] > n:
-            high = mid - 1
-        else:
-            return mid
-    return -1
+# balance = 0
+# s = str(input())
+#
+# for i in s:
+#     if i == "(":
+#         balance+=1
+#     else:
+#         balance-=1
+# if balance >= 0:
+#     print("YES")
+#     print(balance)
+# else:
+#     print("NO")
+#     print(balanc
+#
+def plusMinus(arr):
+    if '0' in arr:
+        arr1 = [str(i) for i in sorted(arr)]
+        c = 0
+        index = arr1.index('0')
+        negative = arr1[:index]
+        for i in arr1[index + 1:]:
+            if i == '0':
+                c += 1
+            if i != '0':
+                break
+        positive = arr1[index + c + 1:]
+        print(format(len(positive) / len(arr), 'f'), format(len(negative) / len(arr), 'f'),
+              format(arr1.count('0') / len(arr), 'f'), sep="\n")
+    else:
+        positive = 0
+        negative = 0
+        arr = [int(i) for i in arr]
+        for i in range(len(arr)):
+            if arr[i] > 0 :
+                positive+=1
+            else:
+                negative+=1
+        print(format(positive / len(arr), 'f'), format(negative/ len(arr), 'f'),
+              format(0 / len(arr), 'f'), sep="\n")
 
-def sort_mas(list , target):
-    for i in range(len(list)):
-        ost = target - list[i]
-        if ost in list:
-            index = binary_searchiter(list,ost)
-            return  [list[i], list[index]]
-        else:
-            return []
-
-print(sort_mas([-6 ,-5 , 0 , 2 , 4 ,4 , 3 , 5] , 8))
-print(sort_mas([-6 ,-5 , 0 , 2 , 3 , 5] , 18))
-print(sort_mas([0, 1, 2, 3, 4, 5, 6, 7, 8, 9] , 17))
+    # if '0' in arr and arr.count('0') == 1:
+    #     print(format(len(arr[arr.find('0')+1:])/len(arr), 'f'), format(len(arr[:arr.find('0')])/len(arr),'f') , format(1/len(arr) , 'f') , sep="\n")
+    # else:
+    #     print(format(len(arr[arr.rfind('0')+1:])/len(arr), 'f') , format(len(arr[:arr.find('0')])/len(arr),'f') , format(arr.count('0')/len(arr)  , 'f'), sep="\n")
 
 
 
-
-
-
-
-
-
+print(plusMinus(list(input().split())))
 
 
 
