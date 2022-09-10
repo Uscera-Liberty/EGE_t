@@ -1,0 +1,1 @@
+def kolpr(a,b):
